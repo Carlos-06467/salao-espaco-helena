@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vitrine de Produtos do Salão</title>
+  
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    main { flex: 1; }
+
+    .menu {
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .menu a::before {
+      content: "•";
+      color: #B8860B;
+      font-size: 16px;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .vitrine-titulo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 36px;
+      text-align: center;
+      margin: 40px 40px 30px 40px;
+      color: #333;
+    }
+
+    .vitrine-texto {
+      font-family: 'Poppins', sans-serif;
+      color: #555;
+      max-width: 900px;
+      margin: 24px auto;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0 40px;
+    }
+
+    .vitrine-texto a {
+      color: #000;
+      text-decoration: underline;
+      text-decoration-color: #B8860B;
+      text-decoration-thickness: 2px;
+      text-decoration-skip-ink: none;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
+
+    footer .logo-footer {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    footer .logo-footer .salao { color: #fff; }
+    footer .logo-footer .helena { color: #B8860B; font-weight: bold; }
+    footer .localidade {
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .vitrine-titulo { font-size: 30px; margin: 40px 12px 30px 12px; }
+      .vitrine-texto { font-size: 15px; padding: 0 12px; }
+      .menu { gap: 20px; }
+      .menu a { font-size: 14px; padding: 4px 6px; }
+      footer .logo-footer { font-size: 28px; }
+      footer .localidade { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="index.html">Introdução</a>
+    <a href="servicos.html">Serviços</a>
+    <a href="vitrine.html">Vitrine</a>
+  </nav>
+
+  <main>
+    <h1 class="vitrine-titulo">Vitrine de Produtos do Salão ✨</h1>
+
+    <section class="vitrine-texto">
+      <p>
+        No Espaço Helena, você encontra produtos úteis para o dia a dia que facilitam seus cuidados com beleza e bem-estar. Temos shampoo anticaspa, máscaras de hidratação, cremes para a pele, pentes, perfumes e muito mais. Tudo pensado para tornar sua rotina prática e eficiente.
+      </p>
+
+      <p>
+        Para adquirir, entre em contato:
+        <br>
+        <strong>Helena</strong> — 📱 
+        <a href="https://wa.me/558892010451">(88) 9201-0451</a>
+        <br>
+        <strong>Henrique</strong> — 📱 
+        <a href="https://wa.me/558894731041">(88) 9473-1041</a>
+      </p>
+
+      <p>
+        <em>Observação: Os produtos são vendidos apenas no salão, não fazemos entregas.</em>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo-footer">
+      <span class="salao">Salão</span> <span class="helena">Espaço Helena</span>
+    </div>
+    <p class="localidade">Rua Maria Rodrigues de Pontes - Alto do Velame - Russas, 490</p>
+  </footer>
+
+</body>
+</html>
