@@ -1,41 +1,64 @@
 /* ============================
-   Menu Superior Corrigido
+   Reset e corpo
+   ============================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================
+   Menu Superior
    ============================ */
 .menu {
-  background-color: #000;        /* retângulo preto */
+  background-color: #000;
   display: flex;
-  justify-content: center;       /* centraliza horizontalmente */
-  align-items: center;           /* centraliza verticalmente */
-  gap: 40px;                     /* espaçamento entre os itens */
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   padding: 10px 0;
   margin-bottom: 20px;
 }
 
-.menu a {
-  color: #fff;                  /* branco sempre */
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  display: flex;                 /* flex para alinhar bolinha e texto */
-  align-items: center;           /* garante alinhamento vertical bolinha/texto */
-  gap: 6px;                      /* distância entre bolinha e texto */
-}
-
-/* Garante que a cor fique igual em todos os estados */
+.menu a,
 .menu a:link,
 .menu a:visited,
 .menu a:hover,
 .menu a:active {
-  color: #fff;                   /* branco sempre */
-  text-decoration: none;         /* sem sublinhado */
+  color: #fff;             /* sempre branco */
+  text-decoration: none;   /* sem sublinhado */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.menu a:hover {
+  background-color: #222;
 }
 
 .menu a::before {
-  content: "•";                  /* bolinha */
-  color: #B8860B;                /* dourado */
+  content: "•";
+  color: #B8860B;
   font-size: 16px;
-  line-height: 1;                
+  line-height: 1;
   display: inline-block;
   margin-right: 4px;
 }
@@ -56,7 +79,6 @@
 .helena { color: #B8860B; font-weight: bold; }
 
 .intro {
-  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   color: #555;
   display: block;
@@ -67,22 +89,22 @@
    Seção Sobre
    ============================ */
 .sobre {
-  font-family: 'Poppins', sans-serif;
-  color: #555;
   max-width: 900px;
   margin: 24px auto;
   font-size: 16px;
   line-height: 1.6;
   padding: 0 18px;
+  color: #555;
 }
 
-.sobre strong { font-weight: 600; color: #555; }
+.sobre strong {
+  font-weight: 600;
+}
 
 /* ============================
    Página de Serviços
    ============================ */
 .servicos-titulo {
-  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 32px;
   text-align: center;
@@ -118,7 +140,7 @@
 .agendar-block a {
   color: #000;
   text-decoration: none;
-  border-bottom: 2px solid #B8860B; /* underline só no nome */
+  border-bottom: 2px solid #B8860B;
   display: inline-block;
   padding-bottom: 2px;
 }
@@ -127,7 +149,6 @@
    Página Vitrine
    ============================ */
 .vitrine-titulo {
-  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 36px;
   text-align: center;
@@ -137,7 +158,6 @@
 }
 
 .vitrine-texto {
-  font-family: 'Poppins', sans-serif;
   color: #555;
   max-width: 900px;
   margin: 24px auto;
