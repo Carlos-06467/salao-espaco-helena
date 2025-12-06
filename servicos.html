@@ -146,6 +146,19 @@
     }
 
     /* ============================
+       Fade-in (transição suave ao carregar)
+       ============================ */
+    .fade-page {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-page.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================
        Ajustes responsivos
        ============================ */
     @media (max-width: 480px) {
@@ -158,7 +171,7 @@
     }
   </style>
 </head>
-<body>
+<body class="fade-page">
 
   <div class="page-container">
 
@@ -240,5 +253,11 @@
 
   </div>
 
+  <script>
+    // Adiciona classe 'loaded' quando a página termina de carregar — ativa o fade-in
+    window.addEventListener("load", function() {
+      document.body.classList.add("loaded");
+    });
+  </script>
 </body>
 </html>
