@@ -4,23 +4,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Vitrine de Produtos do Salão</title>
-  
-  <!-- Fontes -->
+
+  <title>Vitrine de Produtos do Espaço Helena</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
   <style>
+    /* ============================
+       Reset e corpo
+       ============================ */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: 'Poppins', sans-serif; background-color: #fff; }
+
     body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      margin: 0;
     }
 
     main { flex: 1; }
 
+    /* ============================
+       Cabeçalho / Menu superior
+       ============================ */
     .menu {
       background-color: #000;
       display: flex;
@@ -42,7 +48,10 @@
       gap: 6px;
       padding: 4px 8px;
       border-radius: 4px;
+      transition: background 0.3s;
     }
+
+    .menu a:hover { background-color: #222; }
 
     .menu a::before {
       content: "•";
@@ -52,6 +61,9 @@
       display: inline-block;
     }
 
+    /* ============================
+       Título da vitrine
+       ============================ */
     .vitrine-titulo {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
@@ -61,6 +73,9 @@
       color: #333;
     }
 
+    /* ============================
+       Texto da vitrine
+       ============================ */
     .vitrine-texto {
       font-family: 'Poppins', sans-serif;
       color: #555;
@@ -79,6 +94,9 @@
       text-decoration-skip-ink: none;
     }
 
+    /* ============================
+       Rodapé
+       ============================ */
     footer {
       background-color: #000;
       color: #fff;
@@ -86,6 +104,7 @@
       padding: 40px 20px 20px 20px;
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
+      margin-top: auto;
     }
 
     footer .logo-footer {
@@ -97,12 +116,16 @@
 
     footer .logo-footer .salao { color: #fff; }
     footer .logo-footer .helena { color: #B8860B; font-weight: bold; }
+
     footer .localidade {
       font-size: 14px;
       color: #fff;
       margin-bottom: 10px;
     }
 
+    /* ============================
+       Ajustes responsivos
+       ============================ */
     @media (max-width: 480px) {
       .vitrine-titulo { font-size: 30px; margin: 40px 12px 30px 12px; }
       .vitrine-texto { font-size: 15px; padding: 0 12px; }
