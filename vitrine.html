@@ -24,9 +24,6 @@
 
     main { flex: 1; }
 
-    /* ============================
-       Cabeçalho / Menu superior
-       ============================ */
     .menu {
       background-color: #000;
       display: flex;
@@ -61,9 +58,6 @@
       display: inline-block;
     }
 
-    /* ============================
-       Título da vitrine
-       ============================ */
     .vitrine-titulo {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
@@ -73,9 +67,6 @@
       color: #333;
     }
 
-    /* ============================
-       Texto da vitrine
-       ============================ */
     .vitrine-texto {
       font-family: 'Poppins', sans-serif;
       color: #555;
@@ -94,9 +85,6 @@
       text-decoration-skip-ink: none;
     }
 
-    /* ============================
-       Rodapé
-       ============================ */
     footer {
       background-color: #000;
       color: #fff;
@@ -116,7 +104,6 @@
 
     footer .logo-footer .salao { color: #fff; }
     footer .logo-footer .helena { color: #B8860B; font-weight: bold; }
-
     footer .localidade {
       font-size: 14px;
       color: #fff;
@@ -124,8 +111,18 @@
     }
 
     /* ============================
-       Ajustes responsivos
+       Fade-in (transição suave ao carregar)
        ============================ */
+    .fade-page {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-page.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 480px) {
       .vitrine-titulo { font-size: 30px; margin: 40px 12px 30px 12px; }
       .vitrine-texto { font-size: 15px; padding: 0 12px; }
@@ -136,7 +133,7 @@
     }
   </style>
 </head>
-<body>
+<body class="fade-page">
 
   <!-- Menu -->
   <nav class="menu">
@@ -176,5 +173,11 @@
     <p class="localidade">Rua Maria Rodrigues de Pontes - Alto do Velame - Russas, 490</p>
   </footer>
 
+  <script>
+    // Adiciona classe 'loaded' quando a página termina de carregar — ativa o fade-in
+    window.addEventListener("load", function() {
+      document.body.classList.add("loaded");
+    });
+  </script>
 </body>
 </html>
