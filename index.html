@@ -4,26 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Site do Salão Espaço Helena</title>
-
-  <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Meta tags Open Graph -->
-  <meta property="og:title" content="Site do Salão Espaço Helena">
-  <meta property="og:description" content="Espaço Helena: transforme seu visual com elegância, cuidado e profissionalismo em cada serviço.">
-  <meta property="og:image" content="https://carlos-06467.github.io/salao-espaco-helena/og-image1.png">
-  <meta property="og:url" content="https://carlos-06467.github.io/salao-espaco-helena/">
-  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Reset e corpo */
+    /* ============================
+       Reset e corpo
+       ============================ */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; font-family: 'Poppins', sans-serif; background-color: #fff; }
-    .page-container { min-height: 100vh; display: flex; flex-direction: column; }
 
-    /* Menu */
+    /* Container principal para sticky footer */
+    .page-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ============================
+       Cabeçalho / Menu superior
+       ============================ */
     .menu {
       background-color: #000;
       display: flex;
@@ -35,42 +37,96 @@
     }
 
     .menu a {
-      color: #fff; /* links sempre brancos */
+      color: #fff;
       text-decoration: none;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       font-size: 16px;
       display: flex;
       align-items: center;
       gap: 6px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background 0.3s;
     }
 
     .menu a:hover { background-color: #222; }
-    .menu a::before { content: "•"; color: #B8860B; font-size: 16px; display: inline-block; margin-right: 4px; }
 
-    /* Título */
-    .titulo-site { font-family: 'Great Vibes', cursive; font-size: 42px; text-align: center; margin-top: 20px; line-height: 1.3; color: #333; }
+    .menu a::before {
+      content: "•";
+      color: #B8860B;
+      font-size: 16px;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    /* ============================
+       Título
+       ============================ */
+    .titulo-site { 
+      font-family: 'Great Vibes', cursive; 
+      font-size: 42px; 
+      text-align: center; 
+      margin-top: 20px; 
+      line-height: 1.3; 
+      color: #333; 
+    }
+
     .salao { color: #000; }
     .helena { color: #B8860B; font-weight: bold; }
     .intro { font-size: 20px; color: #555; display: block; margin-bottom: 6px; }
 
-    /* Sobre */
-    .sobre { max-width: 900px; margin: 24px auto; font-size: 16px; line-height: 1.6; padding: 0 18px; color: #555; }
+    /* ============================
+       Sobre
+       ============================ */
+    .sobre { 
+      max-width: 900px; 
+      margin: 24px auto; 
+      font-size: 16px; 
+      line-height: 1.6; 
+      padding: 0 30px; 
+      color: #555; 
+    }
+
     .sobre strong { font-weight: 600; }
 
-    /* Rodapé */
-    footer { background-color: #000; color: #fff; text-align: center; padding: 30px 15px; margin-top: auto; }
-    footer .logo { font-family: 'Great Vibes', cursive; font-size: 32px; margin-bottom: 10px; }
+    /* ============================
+       Rodapé
+       ============================ */
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 15px;
+      margin-top: auto;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    footer .logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
     footer .logo .salao { color: #fff; }
     footer .logo .helena { color: #B8860B; font-weight: bold; }
-    footer .localidade { font-size: 14px; line-height: 1.5; max-width: 500px; margin: 0 auto; }
 
-    /* Responsivo */
+    footer .localidade {
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ============================
+       Ajustes responsivos
+       ============================ */
     @media (max-width: 480px) {
       .titulo-site { font-size: 36px; }
       .intro { font-size: 18px; }
-      .sobre { font-size: 15px; padding: 0 12px; }
+      .sobre { font-size: 15px; padding: 0 15px; }
       .menu { gap: 20px; }
-      .menu a { font-size: 14px; }
+      .menu a { font-size: 14px; padding: 4px 6px; }
       footer .logo { font-size: 28px; }
       footer .localidade { font-size: 12px; }
     }
@@ -82,9 +138,9 @@
 
     <!-- Menu -->
     <nav class="menu">
-      <a href="https://carlos-06467.github.io/salao-espaco-helena/index.html">Introdução</a>
-      <a href="https://carlos-06467.github.io/salao-espaco-helena/servicos.html">Serviços</a>
-      <a href="https://carlos-06467.github.io/salao-espaco-helena/vitrine.html">Vitrine</a>
+      <a href="index.html">Introdução</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="vitrine.html">Vitrine</a>
     </nav>
 
     <!-- Título -->
