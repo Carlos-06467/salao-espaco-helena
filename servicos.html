@@ -1,263 +1,228 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Serviços do Espaço Helena</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<title>Serviços do Espaço Helena</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* ============================
-       Reset e corpo
-       ============================ */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; font-family: 'Poppins', sans-serif; background-color: #fff; }
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html, body { font-family:'Poppins', sans-serif; background:#fff; height:100%; }
+  .page-container { min-height:100vh; display:flex; flex-direction:column; }
 
-    /* Container principal para sticky footer */
-    .page-container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  /* Menu */
+  .menu { background:#000; display:flex; justify-content:center; gap:40px; padding:10px 0; }
+  .menu a { color:#fff; text-decoration:none; font-weight:600; padding:4px 8px; border-radius:4px; display:flex; align-items:center; gap:6px; transition:0.3s; }
+  .menu a:hover { background:#222; }
+  .menu a::before { content:"•"; color:#C9A35B; margin-right:4px; }
+  .menu a.active { color:#C9A35B; }
 
-    /* ============================
-       Cabeçalho / Menu superior
-       ============================ */
-    .menu {
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      padding: 10px 0;
-      margin-bottom: 20px;
-    }
+  /* Título */
+  .titulo-site { font-size:42px; text-align:center; margin-top:20px; line-height:1.3; color:#333; padding:0 30px; }
+  .salao { color:#000; }
+  .helena { color:#C9A35B; font-weight:bold; }
 
-    .menu a {
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
+  /* Serviços */
+  .service-block, .agendar-block { margin-bottom:30px; padding:0 30px; }
+  .service-title { font-weight:600; font-size:22px; margin-bottom:12px; color:#000; }
+  .service-list { list-style:disc; margin-left:20px; color:#333; }
+  .service-list li { margin-bottom:6px; }
+  .agendar-block p { margin:6px 0; font-size:16px; color:#000; }
+  .agendar-block a { color:#000; text-decoration:none; }
+  .link-whatsapp a { display:inline-block; border-bottom:2px solid #C9A35B; padding-bottom:2px; font-weight:bold; }
 
-    .menu a:hover { background-color: #222; }
+  /* Rodapé */
+  footer { background:#000; color:#fff; text-align:center; padding:30px 15px; margin-top:auto; }
+  footer .logo { font-family:'Great Vibes', cursive; font-size:32px; margin-bottom:10px; }
+  footer .salao { color:#fff; }
+  footer .helena { color:#C9A35B; font-weight:bold; }
+  footer .localidade { font-size:14px; }
 
-    .menu a::before {
-      content: "•";
-      color: #B8860B;
-      font-size: 16px;
-      line-height: 1;
-      display: inline-block;
-    }
+  /* Aba lateral */
+  .side-tab { position:fixed; top:50%; right:0; transform:translateY(-50%); background:#000; color:#fff; width:40px; height:120px; border-radius:8px 0 0 8px; display:flex; flex-direction:column; justify-content:center; align-items:center; cursor:pointer; z-index:999; }
+  .tab-panel { position:fixed; top:0; right:-400px; width:400px; height:100%; background:#fff; padding:30px; box-shadow:-3px 0 15px rgba(0,0,0,0.3); transition:right 0.3s; z-index:1000; overflow-y:auto; }
+  .tab-panel.active { right:0; }
+  .tab-panel h2 { font-size:22px; margin-bottom:15px; }
+  .tab-panel p { font-size:14px; line-height:1.4; margin-bottom:20px; }
+  .tab-panel button { width:100%; padding:12px; margin-bottom:12px; background:#000; color:#fff; border:none; border-radius:6px; font-size:16px; cursor:pointer; transition:0.3s; }
+  .tab-panel button:hover { background:#222; }
+  .tab-panel button.active { background:#C9A35B; color:#fff; }
 
-    /* ============================
-       Título principal da página
-       ============================ */
-    .titulo-site {
-      font-family: 'Poppins', sans-serif;
-      font-size: 42px;
-      text-align: center;
-      margin-top: 20px; 
-      line-height: 1.3;
-      color: #333;
-      padding: 0 30px; /* margens laterais maiores */
-    }
+  .overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:998; }
 
-    .salao { color: #000; }
-    .helena { color: #B8860B; font-weight: bold; }
+  /* Compartilhar */
+  .share-panel { display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:2000; }
+  .share-content { background:#fff; padding:30px; border-radius:8px; max-width:400px; width:90%; text-align:center; }
+  .share-content input { width:80%; padding:8px; margin:10px 0; }
+  .share-content button { padding:10px 15px; margin:5px; border:none; background:#000; color:#fff; cursor:pointer; border-radius:6px; }
+  .share-content button:hover { background:#222; }
 
-    /* ============================
-       Seções de serviços
-       ============================ */
-    .service-block, .agendar-block {
-      margin-bottom: 30px;
-      padding: 0 30px; /* margens laterais maiores */
-    }
-
-    .service-title {
-      font-weight: 600;
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #000;
-    }
-
-    .service-list {
-      list-style-type: disc;
-      margin-left: 20px;
-      color: #333;
-    }
-
-    .service-list li { margin-bottom: 6px; }
-
-    .agendar-block p {
-      margin: 6px 0;
-      font-size: 16px;
-      color: #000;
-    }
-
-    .agendar-block a {
-      color: #000;
-      text-decoration: none;
-    }
-
-    .link-whatsapp a {
-      display: inline-block;
-      border-bottom: 2px solid #B8860B;
-      padding-bottom: 2px;
-      font-weight: bold;
-    }
-
-    /* ============================
-       Rodapé
-       ============================ */
-    footer {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      padding: 30px 15px;
-      margin-top: auto; /* gruda no final da tela */
-      font-family: 'Poppins', sans-serif;
-    }
-
-    footer .logo {
-      font-family: 'Great Vibes', cursive;
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    footer .logo .salao { color: #fff; }
-    footer .logo .helena { color: #B8860B; font-weight: bold; }
-
-    footer .localidade {
-      font-size: 14px;
-      line-height: 1.5;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    /* ============================
-       Fade-in (transição suave ao carregar)
-       ============================ */
-    .fade-page {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-page.loaded {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============================
-       Ajustes responsivos
-       ============================ */
-    @media (max-width: 480px) {
-      .titulo-site { font-size: 36px; padding: 0 15px; }
-      .menu { gap: 20px; }
-      .menu a { font-size: 14px; padding: 4px 6px; }
-      .service-block, .agendar-block { padding: 0 15px; }
-      footer .logo { font-size: 28px; }
-      footer .localidade { font-size: 12px; }
-    }
-  </style>
+  @media(max-width:480px){
+    .titulo-site{font-size:36px; padding:0 15px;}
+    .service-block, .agendar-block { padding:0 15px; }
+    .menu a{font-size:14px; padding:4px 6px;}
+    .tab-panel{width:300px; padding:20px;}
+  }
+</style>
 </head>
-<body class="fade-page">
+<body>
 
-  <div class="page-container">
+<div class="page-container">
 
-    <!-- Cabeçalho / Menu -->
-    <nav class="menu">
-      <a href="index.html">Introdução</a>
-      <a href="servicos.html">Serviços</a>
-      <a href="vitrine.html">Vitrine</a>
-    </nav>
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="index.html">Introdução</a>
+    <a href="servicos.html">Serviços</a>
+    <a href="vitrine.html">Vitrine</a>
+  </nav>
 
-    <!-- Título da página -->
-    <h1 class="titulo-site">Serviços do <span class="salao">Espaço Helena</span></h1>
+  <!-- Título -->
+  <h1 class="titulo-site">Serviços do <span class="salao">Espaço Helena</span></h1>
 
-    <!-- Conteúdo de serviços -->
-    <section class="service-block">
-      <h2 class="service-title">Cabelos Masculinos</h2>
-      <ul class="service-list">
-        <li>Corte masculino (todos os tipos)</li>
-        <li>Barba</li>
-        <li>Luzes masculinas</li>
-        <li>Hidratação</li>
-        <li>Sobrancelha unissex</li>
-        <li>Depilação de nariz e ouvido na cera</li>
-      </ul>
-    </section>
+  <!-- Conteúdo de serviços -->
+  <section class="service-block">
+    <h2 class="service-title">Cabelos Masculinos</h2>
+    <ul class="service-list">
+      <li>Corte masculino (todos os tipos)</li>
+      <li>Barba</li>
+      <li>Luzes masculinas</li>
+      <li>Hidratação</li>
+      <li>Sobrancelha unissex</li>
+      <li>Depilação de nariz e ouvido na cera</li>
+    </ul>
+  </section>
 
-    <section class="service-block">
-      <h2 class="service-title">Cabelos Femininos</h2>
-      <ul class="service-list">
-        <li>Corte feminino (todos os tipos)</li>
-        <li>Tintura</li>
-        <li>Escova</li>
-        <li>Hidratação</li>
-        <li>Alisamento orgânica</li>
-        <li>Botox capilar</li>
-        <li>Tratamento capilar</li>
-      </ul>
-    </section>
+  <section class="service-block">
+    <h2 class="service-title">Cabelos Femininos</h2>
+    <ul class="service-list">
+      <li>Corte feminino (todos os tipos)</li>
+      <li>Tintura</li>
+      <li>Escova</li>
+      <li>Hidratação</li>
+      <li>Alisamento orgânico</li>
+      <li>Botox capilar</li>
+      <li>Tratamento capilar</li>
+    </ul>
+  </section>
 
-    <section class="service-block">
-      <h2 class="service-title">Depilação Feminina</h2>
-      <ul class="service-list">
-        <li>Íntima completa</li>
-        <li>Axila</li>
-        <li>Buço</li>
-        <li>Pernas (meia)</li>
-        <li>Pernas (inteira)</li>
-      </ul>
-    </section>
+  <section class="service-block">
+    <h2 class="service-title">Depilação Feminina</h2>
+    <ul class="service-list">
+      <li>Íntima completa</li>
+      <li>Axila</li>
+      <li>Buço</li>
+      <li>Pernas (meia)</li>
+      <li>Pernas (inteira)</li>
+    </ul>
+  </section>
 
-    <section class="service-block">
-      <h2 class="service-title">Manicure Unissex</h2>
-      <ul class="service-list">
-        <li>Mão</li>
-        <li>Pé</li>
-        <li>Mão + pé</li>
-        <li>Esmaltação</li>
-        <li>Cutícula</li>
-        <li>Alongamento de unhas (postiças / alongamento)</li>
-      </ul>
-    </section>
+  <section class="service-block">
+    <h2 class="service-title">Manicure Unissex</h2>
+    <ul class="service-list">
+      <li>Mão</li>
+      <li>Pé</li>
+      <li>Mão + pé</li>
+      <li>Esmaltação</li>
+      <li>Cutícula</li>
+      <li>Alongamento de unhas (postiças / alongamento)</li>
+    </ul>
+  </section>
 
-    <section class="service-block agendar-block">
-      <p>Agendar com:</p>
-      <p class="link-whatsapp"><a href="https://wa.me/558892010451">Helena - cabelos unissex e depilação</a></p>
-      <p class="link-whatsapp"><a href="https://wa.me/558894731041">Henrique - cortes masculinos</a></p>
-      <p class="link-whatsapp"><a href="https://wa.me/558893641035">Dida - unhas unissex</a></p>
-    </section>
+  <section class="service-block agendar-block">
+    <p>Agendar com:</p>
+    <p class="link-whatsapp"><a href="https://wa.me/558892010451">Helena - cabelos unissex e depilação</a></p>
+    <p class="link-whatsapp"><a href="https://wa.me/558894731041">Henrique - cortes masculinos</a></p>
+    <p class="link-whatsapp"><a href="https://wa.me/558893641035">Dida - unhas unissex</a></p>
+  </section>
 
-    <!-- Rodapé -->
-    <footer>
-      <div class="logo">
-        <span class="salao">Salão</span> <span class="helena">Espaço Helena</span>
-      </div>
-      <div class="localidade">
-        Rua Maria Rodrigues de Pontes - Alto do Velame - Russas, 490
-      </div>
-    </footer>
-
+  <!-- Aba lateral -->
+  <div class="side-tab" id="sideTab">☰</div>
+  <div class="overlay" id="overlay"></div>
+  <div class="tab-panel" id="tabPanel">
+    <p>Explore nossas áreas exclusivas: acompanhe antes e depois, vídeos explicativos, processos e dicas especiais.<br>
+    Descubra detalhes do universo masculino e feminino com elegância e praticidade, e inspire-se com cada resultado.</p>
+    <button id="btn-masculina">Área Masculina</button>
+    <button id="btn-feminina">Área Feminina</button>
+    <button id="btn-compartilhar">Compartilhar</button>
   </div>
 
-  <script>
-    // Adiciona classe 'loaded' quando a página termina de carregar — ativa o fade-in
-    window.addEventListener("load", function() {
-      document.body.classList.add("loaded");
-    });
-  </script>
+  <!-- Painel de compartilhamento -->
+  <div class="share-panel" id="sharePanel">
+    <div class="share-content">
+      <h2>Compartilhar site</h2>
+      <p>Use o link abaixo para compartilhar com amigos:</p>
+      <input type="text" value="https://espacohelena.com.br" readonly id="shareLink">
+      <button id="copyLink">Copiar link</button>
+      <button id="closeShare">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="logo">
+      <span class="salao">Salão</span> <span class="helena">Espaço Helena</span>
+    </div>
+    <div class="localidade">
+      Rua Maria Rodrigues de Pontes - Alto do Velame - Russas, 490
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const sideTab = document.getElementById('sideTab');
+  const overlay = document.getElementById('overlay');
+  const tabPanel = document.getElementById('tabPanel');
+  const btnMasculina = document.getElementById('btn-masculina');
+  const btnFeminina = document.getElementById('btn-feminina');
+  const btnCompartilhar = document.getElementById('btn-compartilhar');
+  const sharePanel = document.getElementById('sharePanel');
+  const closeShare = document.getElementById('closeShare');
+  const copyLink = document.getElementById('copyLink');
+  const shareLink = document.getElementById('shareLink');
+
+  // Abrir aba lateral
+  sideTab.addEventListener('click', () => {
+    overlay.style.display = 'block';
+    tabPanel.classList.add('active');
+  });
+
+  // Fechar aba lateral
+  overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    tabPanel.classList.remove('active');
+  });
+
+  // Menu ativo
+  document.querySelectorAll('.menu a').forEach(link => {
+    if(link.href === window.location.href) link.classList.add('active');
+  });
+
+  // Botões aba lateral
+  btnMasculina.addEventListener('click', () => {
+    btnMasculina.classList.add('active');
+    btnFeminina.classList.remove('active');
+    window.location.href = "homens.html";
+  });
+
+  btnFeminina.addEventListener('click', () => {
+    btnFeminina.classList.add('active');
+    btnMasculina.classList.remove('active');
+    window.location.href = "mulheres.html";
+  });
+
+  // Compartilhar
+  btnCompartilhar.addEventListener('click', () => { sharePanel.style.display = 'flex'; });
+  closeShare.addEventListener('click', () => { sharePanel.style.display = 'none'; });
+  copyLink.addEventListener('click', () => {
+    shareLink.select();
+    document.execCommand('copy');
+    alert('Link copiado!');
+  });
+</script>
+
 </body>
 </html>
