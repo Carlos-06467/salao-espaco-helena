@@ -170,7 +170,7 @@
   <h1 class="titulo-site">Área Masculina</h1>
 
   <!-- Texto da área -->
-  <section class="area-texto" id="descricao-texto">
+  <section class="area-texto">
     <p>
       Bem-vindo à Área Masculina do Espaço Helena! Aqui você encontra conteúdos exclusivos com vídeos explicativos, exemplos de antes e depois e dicas práticas para cuidar do estilo masculino com confiança e modernidade.
     </p>
@@ -180,8 +180,9 @@
   <div class="side-tab" id="sideTab">☰</div>
   <div class="overlay" id="overlay"></div>
   <div class="tab-panel" id="tabPanel">
-    <p id="descricao-tab">Explore outras áreas exclusivas: acompanhe antes e depois, vídeos explicativos, processos e dicas especiais para homens e mulheres.</p>
-    <button id="btn-copiar">Copiar descrição</button>
+    <p>
+      Bem-vindo à Área Masculina do Espaço Helena! Aqui você encontra conteúdos exclusivos com vídeos explicativos, exemplos de antes e depois e dicas práticas para cuidar do estilo masculino com confiança e modernidade.
+    </p>
     <button onclick="window.location.href='areamasculina.html'">Área Masculina</button>
     <button onclick="window.location.href='areafeminina.html'">Área Feminina</button>
     <button onclick="window.location.href='index.html'">Home</button>
@@ -203,15 +204,15 @@
   // Ativa link do menu correspondente à página
   const menuLinks = document.querySelectorAll('.menu a');
   menuLinks.forEach(link => {
-    if(link.href === window.location.href) link.classList.add('active');
+    if(link.href === window.location.href) {
+      link.classList.add('active');
+    }
   });
 
   // Função do botão flutuante
   const sideTab = document.getElementById('sideTab');
   const overlay = document.getElementById('overlay');
   const tabPanel = document.getElementById('tabPanel');
-  const btnCopiar = document.getElementById('btn-copiar');
-  const descricaoTab = document.getElementById('descricao-tab');
 
   sideTab.addEventListener('click', () => {
     overlay.style.display = 'block';
@@ -221,13 +222,6 @@
   overlay.addEventListener('click', () => {
     overlay.style.display = 'none';
     tabPanel.classList.remove('active');
-  });
-
-  // Copiar texto da descrição
-  btnCopiar.addEventListener('click', () => {
-    navigator.clipboard.writeText(descricaoTab.innerText)
-      .then(() => alert("Descrição copiada!"))
-      .catch(err => alert("Erro ao copiar descrição: " + err));
   });
 </script>
 
