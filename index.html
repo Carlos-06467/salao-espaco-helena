@@ -175,28 +175,4 @@
 </script>
 
 </body>
-</html>  // Botões aba lateral
-  btnMasculina.addEventListener('click', () => {
-    btnMasculina.classList.add('active');
-    btnFeminina.classList.remove('active');
-    window.location.href = "homens.html";
-  });
-
-  btnFeminina.addEventListener('click', () => {
-    btnFeminina.classList.add('active');
-    btnMasculina.classList.remove('active');
-    window.location.href = "mulheres.html";
-  });
-
-  // Compartilhar
-  btnCompartilhar.addEventListener('click', () => { sharePanel.style.display = 'flex'; });
-  closeShare.addEventListener('click', () => { sharePanel.style.display = 'none'; });
-  copyLink.addEventListener('click', () => {
-    shareLink.select();
-    document.execCommand('copy');
-    alert('Link copiado!');
-  });
-</script>
-
-</body>
 </html>
